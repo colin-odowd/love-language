@@ -18,8 +18,8 @@ function MessageForm() {
         });
 
         // Update the message count
-        const countRef = ref(db, 'count');
-        set(countRef, increment(1));
+        //const countRef = ref(db, 'count');
+        //set(countRef, increment(1));
 
         setMessage('');
     };
