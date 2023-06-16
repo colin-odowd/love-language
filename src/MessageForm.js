@@ -1,46 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { ref, push, set, get, child, onValue, increment } from 'firebase/database';
+import React, { useState } from 'react';
+import { ref, push, set, increment } from 'firebase/database';
 import { db } from './firebase';
 
 function MessageForm() {
     const [message, setMessage] = useState('');
-    const [count, setCount] = useState(0);
-
-    useEffect(() => {
-        const messagesRef = ref(db, 'messages');
-
-        // Fetch the current count from the database
-        get(child(messagesRef, 'count')).then((snapshot) => {
-            if (snapshot.exists()) {
-                setCount(snapshot.val());
-            }
-        });
-
-        // Real-time listener to keep the count up to date
-        onValue(child(messagesRef, 'count'), (snapshot) => {
-            if (snapshot.exists()) {
-                setCount(snapshot.val());
-            }
-        });
-    }, []);
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         const messagesRef = ref(db, 'messages');
 
-        // Push the new message and update the count
+        // Push the new message
         const newMessageRef = push(messagesRef);
         set(newMessageRef, {
             message: message,
             date: new Date().toISOString()
         });
 
-        const countRef = child(messagesRef, 'count');
+        // Update the message count
+        const countRef = ref(db, 'count');
         set(countRef, increment(1));
 
         setMessage('');
     };
+
     return (
         <form onSubmit={handleSubmit}>
             <label>
