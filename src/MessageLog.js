@@ -1,41 +1,49 @@
 import React, { useEffect, useState } from 'react';
-import { db, analytics } from './firebase';
-import { ref, push, set } from 'firebase/database';
-
-
+import { ref, onValue } from 'firebase/database';
+import { db } from './firebase';
 
 function MessageLog() {
-    const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([]);
 
-    useEffect(() => {
-        const messageRef = firebase.database().ref('messages');
-        messageRef.on('value', (snapshot) => {
-            const messages = snapshot.val();
-            const newState = [];
-            for (let message in messages) {
-                newState.push({
-                    id: message,
-                    message: messages[message].message,
-                    timestamp: messages[message].timestamp
-                });
-            }
-            setMessages(newState);
-        });
-    }, []);
+  useEffect(() => {
+    const messagesRef = ref(db, 'messages');
 
-    return (
-        <div style={{ overflow: 'auto', maxHeight: '200px' }}>
-            <table>
-                <thead>
-                    <tr><th>Messages Log</th></tr>
-                </thead>
-                <tbody>
-                    {messages.map((message) => (
-                        <tr key={message.id}><td>{message.message}</td></tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
-    );
+    onValue(messagesRef, (snapshot) => {
+      const messagesData = snapshot.val();
+      if (messagesData) {
+        const messageList = Object.entries(messagesData).map(([key, value]) => ({
+          id: key,
+          message: value.message,
+          date: formatDate(value.date),
+        }));
+        setMessages(messageList);
+      }
+    });
+  }, []);
+
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
+  return (
+    <div>
+      {messages.length > 0 ? (
+        <table>
+          <tbody>
+            {messages.map((message) => (
+              <tr key={message.id}>
+                <td>{message.date}</td>
+                <td>{message.message}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>No messages found.</p>
+      )}
+    </div>
+  );
+}
 
 export default MessageLog;

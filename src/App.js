@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import MessageForm from './MessageForm'; 
+import MessageLog from './MessageLog';
+
 import { ref, onValue } from 'firebase/database';
 import { db } from './firebase';
 import { useEffect, useState } from 'react';
@@ -36,6 +38,7 @@ function App() {
     <div className="App">
       <MessageForm />
       <h1 className="center">{latestMessage}</h1>
+      <MessageLog />
     </div>
   );
 }

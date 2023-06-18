@@ -17,10 +17,6 @@ function MessageForm() {
             date: new Date().toISOString()
         });
 
-        // Update the message count
-        //const countRef = ref(db, 'count');
-        //set(countRef, increment(1));
-
         setMessage('');
     };
 
