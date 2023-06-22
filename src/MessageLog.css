@@ -1,0 +1,11 @@
+.MessageLog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  table {
+    background-color: inherit; /* Make table have the same background color as .MessageLog */
+    /* Add other styles as needed */
+  }
+  
