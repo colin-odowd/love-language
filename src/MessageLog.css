@@ -1,23 +1,22 @@
 .message-container {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    width: 100%;
-    margin-bottom: 30px;  /* adjust as needed */
-
-  }
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;  /* adjust as needed */
+}
   
-  .date {
-    position: absolute;
-    left: 10%;
-    transform: translateX(-10%);
-  }
+.date {
+  position: absolute;
+  left: 10%;
+  transform: translateX(-10%);
+}
   
-  .message {
-    width: 50%;
-    text-align: center;
-    margin-left: 25%;
-    word-wrap: break-word; 
-    overflow-wrap: break-word;
-  }
+.message {
+  width: 50%;
+  text-align: center;
+  margin-left: 25%;
+  word-wrap: break-word; 
+  overflow-wrap: break-word;
+}
   
