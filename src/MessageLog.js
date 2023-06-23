@@ -30,21 +30,19 @@ function MessageLog() {
   return (
     <div className="MessageLog">
       {messages.length > 0 ? (
-        <table>
-          <tbody>
-            {messages.map((message) => (
-              <tr key={message.id}>
-                <td>{message.date}</td>
-                <td>{message.message}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        messages.map((message) => (
+          <div key={message.id} className='message-container'>
+            <div className='date'>{message.date}</div>
+            <div className='message'>{message.message}</div>
+          </div>            
+        ))
       ) : (
         <p>No messages found.</p>
       )}
     </div>
   );
+  
+  
 }
 
 export default MessageLog;

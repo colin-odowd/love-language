@@ -1,11 +1,23 @@
-.MessageLog {
+.message-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;  /* adjust as needed */
+
   }
   
-  table {
-    background-color: inherit; /* Make table have the same background color as .MessageLog */
-    /* Add other styles as needed */
+  .date {
+    position: absolute;
+    left: 10%;
+    transform: translateX(-10%);
+  }
+  
+  .message {
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
   }
   
