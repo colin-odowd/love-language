@@ -1,34 +1,60 @@
 import React, { useState } from 'react';
-import { ref, push, set, increment } from 'firebase/database';
+import { ref, push, set } from 'firebase/database';
 import { db } from './firebase';
-import './MessageForm.css'; // Add this line
+import { getStorage, ref as stRef, uploadBytesResumable, getDownloadURL } from 'firebase/storage'; 
+import { v4 as uuidv4 } from 'uuid';
+
+import './MessageForm.css';
 
 function MessageForm() {
-    const [message, setMessage] = useState('');
+  const [message, setMessage] = useState('');
+  const [image, setImage] = useState(null);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+  const handleImageChange = (e) => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0]);
+    }
+  }
 
-        const messagesRef = ref(db, 'messages');
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-        // Push the new message
-        const newMessageRef = push(messagesRef);
-        set(newMessageRef, {
-            message: message,
-            date: new Date().toISOString()
+    const messagesRef = ref(db, 'messages');
+    const newMessageRef = push(messagesRef);
+    let imageUrl = "";
+
+    if(image) {
+      const storage = getStorage();
+      const imageName = uuidv4();
+      const storageRef = stRef(storage, `images/${imageName}`);
+      const uploadTask = uploadBytesResumable(storageRef, image);
+
+      await uploadTask.then(async () => {
+        await getDownloadURL(storageRef).then((downloadURL) => {
+          imageUrl = downloadURL;
         });
+      });
+    }
 
-        setMessage('');
-    };
+    set(newMessageRef, {
+      message: message,
+      image: imageUrl,
+      date: new Date().toISOString()
+    });
 
-    return (
-        <form onSubmit={handleSubmit} className="message-form">
-            <label>
-                <input type="text" className="message-input" value={message} onChange={(e) => setMessage(e.target.value)} />
-            </label>
-            <input type="submit" value="Submit" className="submit-button" />
-        </form>
-    );
+    setImage(null);
+    setMessage('');
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="message-form">
+      <label>
+        <input type="text" className="message-input" value={message} onChange={(e) => setMessage(e.target.value)} />
+      </label>
+      <input type="file" onChange={handleImageChange} />
+      <input type="submit" value="Submit" className="submit-button" />
+    </form>
+  );
 }
 
 export default MessageForm;
