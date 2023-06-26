@@ -19,4 +19,9 @@
   word-wrap: break-word; 
   overflow-wrap: break-word;
 }
-  
+
+.message-image {
+  max-width: 100%;
+  height: auto;
+}
+

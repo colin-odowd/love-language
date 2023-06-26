@@ -15,18 +15,11 @@ function App() {
 
     onValue(messagesRef, (snapshot) => {
       const messages = snapshot.val();
-      console.log('Messages snapshot:', messages); // Add this line to check the snapshot data
 
       if (messages) {
         const messageKeys = Object.keys(messages);
-        console.log('Message keys:', messageKeys); // Add this line to check the message keys
-
         const latestKey = messageKeys[messageKeys.length - 1];
-        console.log('Latest key:', latestKey); // Add this line to check the latest key
-
         const latestMessage = messages[latestKey].message;
-        console.log('Latest message:', latestMessage); // Add this line to check the latest message
-
         setLatestMessage(latestMessage);
       }
     });
