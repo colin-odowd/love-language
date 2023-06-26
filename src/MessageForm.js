@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ref, push, set, increment } from 'firebase/database';
 import { db } from './firebase';
+import './MessageForm.css'; // Add this line
 
 function MessageForm() {
     const [message, setMessage] = useState('');
@@ -21,12 +22,11 @@ function MessageForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="message-form">
             <label>
-                Message:
-                <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} />
+                <input type="text" className="message-input" value={message} onChange={(e) => setMessage(e.target.value)} />
             </label>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" className="submit-button" />
         </form>
     );
 }

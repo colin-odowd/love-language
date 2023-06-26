@@ -1,0 +1,36 @@
+.message-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+  border-radius: 10px;
+}
+  
+.message-input {
+  padding: 10px;
+  width: 400px;  /* Adjust as needed */
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.message-input:focus {
+  outline: none; /* Removes the default browser outline */
+  border: none; /* Adds a new outline as a border on the element itself */
+}
+  
+.submit-button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #5B3F90;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #007DC5;
+}
+  
