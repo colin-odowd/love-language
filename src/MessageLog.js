@@ -46,7 +46,7 @@ function MessageLog() {
           <div key={message.id} className='message-container'>
             <div className='date'>{message.date}</div>
             {message.image ? (
-              <div>
+              <div className="image-container">
                 <img src={message.image} alt="message content" className='message-image'/>
               </div>
             ) : (
