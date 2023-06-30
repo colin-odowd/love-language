@@ -7,3 +7,16 @@ body {
   color: #fff; /* Set the text color to white */
 }
 
+.latest-message-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 75px;
+  width: 100%;
+}
+
+.latest-message-image {
+  max-width: 500px; /* Or whatever max size you prefer */
+  height: auto;
+}
+
