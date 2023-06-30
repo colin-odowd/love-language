@@ -1,14 +1,12 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import { ref, onValue } from 'firebase/database';
+import { db } from './firebase';
 import './App.css';
 import MessageForm from './MessageForm'; 
 import MessageLog from './MessageLog';
 
-import { ref, onValue } from 'firebase/database';
-import { db } from './firebase';
-import { useEffect, useState } from 'react';
-
 function App() {
-  const [latestMessage, setLatestMessage] = useState('');
+  const [latestMessage, setLatestMessage] = useState(null);
 
   useEffect(() => {
     const messagesRef = ref(db, 'messages');
@@ -19,18 +17,22 @@ function App() {
       if (messages) {
         const messageKeys = Object.keys(messages);
         const latestKey = messageKeys[messageKeys.length - 1];
-        const latestMessage = messages[latestKey].message;
+        const latestMessage = messages[latestKey];
         setLatestMessage(latestMessage);
       }
     });
   }, []);
 
-  console.log('Latest message state:', latestMessage); // Add this line to check the latest message state
-
   return (
     <div className="App">
       <MessageForm />
-      <h1 className="center">{latestMessage}</h1>
+      <div className="center">
+        {latestMessage?.image ? (
+          <img src={latestMessage.image} alt="Latest message content" className='latest-message-image'/>
+        ) : (
+          <h1>{latestMessage?.message}</h1>
+        )}
+      </div>
       <MessageLog />
     </div>
   );
