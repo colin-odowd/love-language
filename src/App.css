@@ -11,7 +11,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 750px;
+  display: inline-block;
+  word-wrap: break-word; 
+  text-align: center;
+  max-width: 100%;
   height: auto;
   margin: auto;
   font-family: Arial, serif;
