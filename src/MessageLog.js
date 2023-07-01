@@ -1,3 +1,4 @@
+import './App.css';
 import './MessageLog.css';
 import React, { useEffect, useState } from 'react';
 import { ref, onValue } from 'firebase/database';

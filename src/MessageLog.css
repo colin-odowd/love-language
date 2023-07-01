@@ -1,6 +1,5 @@
 .message-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -19,16 +18,15 @@
   overflow-wrap: break-word;
   text-align: center;
   max-width: 50%;
-  font-family: Arial, serif;
-  font-size: 20px;
-  font-weight: bold;
+  font-family: Floral;
+  font-size: 30px;
 }
 
 .image-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 750px;
+  width: 500px;
   height: auto;
   overflow: hidden;
 }
@@ -44,8 +42,7 @@
 .date {
   position: absolute;
   left: 10%;
-  font-family: Arial, serif;
-  font-size: 20px;
-  font-weight: bold;
+  font-family: Floral;
+  font-size: 30px;
 }
   

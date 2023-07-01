@@ -25,12 +25,13 @@ function App() {
 
   return (
     <div className="App">
+      <div className="title"> Leah's Affirmations of Love </div>
       <MessageForm />
       <div className="latest-message-container">
         {latestMessage?.image ? (
           <img src={latestMessage.image} alt="Latest message content" className='latest-message-image'/>
         ) : (
-          <h1>{latestMessage?.message}</h1>
+          <div className="latest-message">{latestMessage?.message}</div>
         )}
       </div>
       <MessageLog />
