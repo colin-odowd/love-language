@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <MessageForm />
-      <div className="center">
+      <div className="latest-message-container">
         {latestMessage?.image ? (
           <img src={latestMessage.image} alt="Latest message content" className='latest-message-image'/>
         ) : (
