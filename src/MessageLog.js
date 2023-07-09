@@ -56,7 +56,7 @@ function MessageLog() {
           </div>
         ))
       ) : (
-        <p>No messages found.</p>
+        <div className='no-messages'>No Messages Found</div>
       )}
     </div>
   );

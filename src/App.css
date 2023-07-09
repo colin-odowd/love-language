@@ -9,15 +9,32 @@
   text-align: center;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header .title {
+  font-family: Floral;
+  color: #FFC0CB;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 90px; /* Adjust this value as necessary to fit your design */
+}
+
+.header img {
+  max-width: 150px;
+  height: auto;
+}
+
 body {
-  background-color: #CBC3E3; 
+  background-color: #2C3E50; 
   color: #fff; 
 }
 
-.title {
-  font-family: Floral;
-  font-size: 100px;
-  color: #FF69B4;
+.message-form {
+  margin-top: -100px; /* Negative margin value to move it up, adjust as needed */
 }
 
 .latest-message-container {

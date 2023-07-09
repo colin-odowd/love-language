@@ -4,6 +4,9 @@ import { db } from './firebase';
 import './App.css';
 import MessageForm from './MessageForm'; 
 import MessageLog from './MessageLog';
+import vines from './vines.png';
+import vines_flip from './vines_flip.png';
+
 
 function App() {
   const [latestMessage, setLatestMessage] = useState(null);
@@ -25,7 +28,11 @@ function App() {
 
   return (
     <div className="App">
-      <div className="title"> Leah's Affirmations of Love </div>
+      <div className="header"> 
+        <img src={vines_flip} />
+        <div className="title"> Leah's Affirmations of Love </div>
+        <img src={vines} />
+      </div>
       <MessageForm />
       <div className="latest-message-container">
         {latestMessage?.image ? (

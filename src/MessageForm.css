@@ -13,6 +13,15 @@
   margin-top: 10px;
   border: none;
   border-radius: 5px;
+  flex-grow: 1;
+  margin-right: 10px; 
+}
+
+.form-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; /* Optional: Adjust the spacing between the input and other elements */
 }
 
 .message-input:focus {
@@ -23,14 +32,32 @@
 .submit-button {
   padding: 10px 20px;
   margin-top: 10px;
-  background-color: #5B3F90;
+  background-color: #9370DB; 
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-family: Floral;
+  font-size: 12px;
 }
 
 .submit-button:hover {
-  background-color: #007DC5;
+  background-color: #FFC0CB;
 }
-  
+
+.file-upload-button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+  background-color: #9370DB;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Floral;
+  font-size: 12px;
+}
+
+.file-upload-button:hover {
+  background-color: #FFC0CB;
+}
