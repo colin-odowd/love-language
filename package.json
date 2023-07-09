@@ -1,5 +1,6 @@
 {
   "name": "love-language",
+  "homepage": "https://www.colinodowd-loves.me",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
