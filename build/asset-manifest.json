@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.409eb491.css",
+    "main.js": "/static/js/main.fd3d3bc4.js",
+    "static/js/787.b2ef30dd.chunk.js": "/static/js/787.b2ef30dd.chunk.js",
+    "static/media/floral.ttf": "/static/media/floral.be99ac1753f073dc16cd.ttf",
+    "static/media/vines.png": "/static/media/vines.98c4fe303d74f60fe3bb.png",
+    "static/media/vines_flip.png": "/static/media/vines_flip.0b50be5a919d756576f2.png",
+    "index.html": "/index.html",
+    "main.409eb491.css.map": "/static/css/main.409eb491.css.map",
+    "main.fd3d3bc4.js.map": "/static/js/main.fd3d3bc4.js.map",
+    "787.b2ef30dd.chunk.js.map": "/static/js/787.b2ef30dd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.409eb491.css",
+    "static/js/main.fd3d3bc4.js"
+  ]
+}
