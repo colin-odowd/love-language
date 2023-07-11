@@ -1,3 +1,13 @@
+# For making changes to the deployed website
+
+cd to React project location
+git push origin --delete gh-pages
+npm cache clean --force 
+rm -rf node_modules
+npm install
+npm run deploy 
+Reconfigure deployment page on Github
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
